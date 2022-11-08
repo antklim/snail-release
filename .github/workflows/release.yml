@@ -4,12 +4,50 @@ on:
   push:
     tags:
       - "v*.*.*"
+env:
+  DENO_DIR: .cache
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v3
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Cache Deno dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.DENO_DIR }}
+          key: ${{ hashFiles('lock.json') }}
+
+      - name: Build binaries
+        run: deno task build
+
+      - name: Archive binaries
+        uses: actions/upload-artifact@v3
+        with:
+          name: snail-release-bin
+          path: build/snail-release
+          retention-days: 7
+
+  release:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Download binaries
+        uses: actions/download-artifact@v3
+        with:
+          name: snail-release-bin
+
       - name: Release
         uses: softprops/action-gh-release@v1
+        with:
+          files: snail-release
