@@ -1,10 +1,6 @@
 name: Release
 
 on: workflow_dispatch
-    
-  # push:
-  #   tags:
-  #     - "v*.*.*"
 
 env:
   DENO_DIR: .cache
@@ -51,13 +47,7 @@ jobs:
           name: snail-release-bin
           path: build/snail-release
 
-      # - name: Release
-      #   uses: softprops/action-gh-release@v1
-      #   with:
-      #     files: snail-release
-
       - name: Release
         run: npx semantic-release
-        env:
-          NODE_PATH: .github/release/node_modules
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
