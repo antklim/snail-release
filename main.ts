@@ -18,10 +18,15 @@ export function sqr(a: number): number {
   return a * a;
 }
 
+export function sqrt(a: number): number {
+  return Math.sqrt(a);
+}
+
 if (import.meta.main) {
   console.log("Add 2 + 3 =", add(2, 3));
   console.log("Sub 2 - 3 =", sub(2, 3));
   console.log("Mul 2 * 3 =", mul(2, 3));
   console.log("Div 2 / 3 =", div(2, 3));
   console.log("Sqr 2     =", sqr(2));
+  console.log("Sqrt2     =", sqrt(2));
 }
