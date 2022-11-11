@@ -49,8 +49,15 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: snail-release-bin
+          path: build/snail-release
+
+      # - name: Release
+      #   uses: softprops/action-gh-release@v1
+      #   with:
+      #     files: snail-release
 
       - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: snail-release
+        run: npx semantic-release
+        env:
+          NODE_PATH: .github/release/node_modules
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
