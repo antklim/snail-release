@@ -30,6 +30,10 @@ export function cos(a: number): number {
   return Math.cos(a);
 }
 
+export function tan(a: number): number {
+  return Math.tan(a);
+}
+
 if (import.meta.main) {
   console.log("Add 2 + 3 =", add(2, 3));
   console.log("Sub 2 - 3 =", sub(2, 3));
@@ -39,4 +43,5 @@ if (import.meta.main) {
   console.log("Sqrt2     =", sqrt(2));
   console.log("Sin 2     =", sin(2));
   console.log("Cos 2     =", cos(2));
+  console.log("Tan 2     =", tan(2));
 }
