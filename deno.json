@@ -21,7 +21,11 @@
     }
   },
   "tasks": {
-    "build": "deno compile --output build/ main.ts",
+    "build": "deno compile --output dist/ main.ts",
+    "build:linux": "deno compile --target x86_64-unknown-linux-gnu --output dist/snail-release-linux-x86_64 main.ts",
+    "build:win": "deno compile --target x86_64-pc-windows-msvc --output dist/snail-release-win-x86_64 main.ts",
+    "build:macos": "deno compile --target x86_64-apple-darwin --output dist/snail-release-darwin-x86_64 main.ts",
+    "build:macos-arm": "deno compile --target aarch64-apple-darwin --output dist/snail-release-darwin-arm64 main.ts",
     "cache": "deno cache --lock=lock.json --lock-write deps.ts",
     "cache-reload": "deno cache --reload --lock=lock.json deps.ts",
     "start": "deno run main.ts",
