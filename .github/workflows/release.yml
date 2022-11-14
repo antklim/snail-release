@@ -25,7 +25,11 @@ jobs:
           key: ${{ hashFiles('lock.json') }}
 
       - name: Build binaries
-        run: deno task build
+        run: |
+          deno task build:linux
+          deno task build:win
+          deno task build:macos
+          deno task build:macos-arm
 
       - name: Archive binaries
         uses: actions/upload-artifact@v3
