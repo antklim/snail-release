@@ -30,8 +30,8 @@ jobs:
       - name: Archive binaries
         uses: actions/upload-artifact@v3
         with:
-          name: snail-release-bin
-          path: build/snail-release
+          name: snail-release
+          path: dist/
           retention-days: 7
 
   release:
@@ -44,8 +44,8 @@ jobs:
       - name: Download binaries
         uses: actions/download-artifact@v3
         with:
-          name: snail-release-bin
-          path: build/snail-release
+          name: snail-release
+          path: dist/
 
       - name: Release
         run: npx semantic-release
