@@ -44,7 +44,7 @@ jobs:
           cd dist
           for file in *; do sha256sum $file >> checksums.txt; done
 
-      - name: Archive binaries
+      - name: Archive distribution
         uses: actions/upload-artifact@v3
         with:
           name: snail-release
