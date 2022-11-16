@@ -33,7 +33,7 @@ jobs:
       
       - name: Compute checksums
         run: |
-          ls -la
+          ls -la dist
           sha256sum dist/snail-release-linux-x86_64 >> checksums.md
           sha256sum dist/snail-release-win-x86_64 >> checksums.md
           sha256sum dist/snail-release-darwin-x86_64 >> checksums.md
