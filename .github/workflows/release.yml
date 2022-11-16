@@ -33,8 +33,8 @@ jobs:
       
       - name: Compute checksums
         run: |
-          for file in dist/*; do sha256sum $file >> checksums.md; done
-          mv checksums.md dist/
+          cd dist
+          for file in *; do sha256sum $file >> checksums.md; done
 
       - name: Archive binaries
         uses: actions/upload-artifact@v3
