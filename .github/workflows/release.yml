@@ -33,18 +33,16 @@ jobs:
       
       - name: Compute checksums
         run: |
-          sha256sum dist/snail-release-linux-x86_64 >> checksums.md
-          sha256sum dist/snail-release-win-x86_64.exe >> checksums.md
-          sha256sum dist/snail-release-darwin-x86_64 >> checksums.md
-          sha256sum dist/snail-release-darwin-arm64 >> checksums.md
+          sha256sum dist/snail-release-linux-x86_64 >> dist/checksums.md
+          sha256sum dist/snail-release-win-x86_64.exe >> dist/checksums.md
+          sha256sum dist/snail-release-darwin-x86_64 >> dist/checksums.md
+          sha256sum dist/snail-release-darwin-arm64 >> dist/checksums.md
 
       - name: Archive binaries
         uses: actions/upload-artifact@v3
         with:
           name: snail-release
-          path: |
-            dist/
-            checksums.md
+          path: dist/
           retention-days: 7
 
   release:
@@ -58,9 +56,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: snail-release
-          path: |
-            dist/
-            checksums.md
+          path: dist/
 
       - name: Release
         run: npx semantic-release
