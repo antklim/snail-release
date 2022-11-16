@@ -31,6 +31,15 @@ jobs:
           deno task build:macos
           deno task build:macos-arm
       
+      - name: Prepare distribution
+        run: |
+          deno task dist:linux
+          deno task dist:win
+          deno task dist:macos
+          deno task dist:macos-arm
+          cd dist
+          for file in !(*.tar.gz|*.zip); do rm $file; done
+
       - name: Compute checksums
         run: |
           cd dist
