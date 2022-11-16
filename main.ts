@@ -46,6 +46,10 @@ export function abs(a: number): number {
   return Math.abs(a);
 }
 
+export function acos(a: number): number {
+  return Math.acos(a);
+}
+
 if (import.meta.main) {
   console.log("Add 2 + 3 =", add(2, 3));
   console.log("Sub 2 - 3 =", sub(2, 3));
@@ -59,4 +63,5 @@ if (import.meta.main) {
   console.log("Tan 2     =", tan(2));
   console.log("Log 2     =", log(2));
   console.log("Abs -2    =", abs(-2));
+  console.log("Acos 2    =", acos(2));
 }
