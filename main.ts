@@ -42,6 +42,10 @@ export function log(a: number): number {
   return Math.log(a);
 }
 
+export function abs(a: number): number {
+  return Math.abs(a);
+}
+
 if (import.meta.main) {
   console.log("Add 2 + 3 =", add(2, 3));
   console.log("Sub 2 - 3 =", sub(2, 3));
@@ -54,4 +58,5 @@ if (import.meta.main) {
   console.log("Cos 2     =", cos(2));
   console.log("Tan 2     =", tan(2));
   console.log("Log 2     =", log(2));
+  console.log("Abs -2    =", abs(-2));
 }
