@@ -9,3 +9,4 @@ plugins:
       failComment: false
       assets:
         - path: 'dist/**'
+        - path: 'checksums.md'
