@@ -37,8 +37,7 @@ jobs:
           deno task dist:win
           deno task dist:macos
           deno task dist:macos-arm
-          cd dist
-          for file in !(*.tar.gz|*.zip); do rm $file; done
+          find ./dist -type f -not -name '*.tar.gz' -not -name '*.zip' | xargs rm
 
       - name: Compute checksums
         run: |
