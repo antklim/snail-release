@@ -50,6 +50,10 @@ export function acos(a: number): number {
   return Math.acos(a);
 }
 
+export function asin(a: number): number {
+  return Math.asin(a);
+}
+
 if (import.meta.main) {
   console.log("Add 2 + 3 =", add(2, 3));
   console.log("Sub 2 - 3 =", sub(2, 3));
@@ -64,4 +68,5 @@ if (import.meta.main) {
   console.log("Log 2     =", log(2));
   console.log("Abs -2    =", abs(-2));
   console.log("Acos 2    =", acos(2));
+  console.log("Asin 2    =", asin(2));
 }
