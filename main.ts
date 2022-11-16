@@ -34,11 +34,16 @@ export function tan(a: number): number {
   return Math.tan(a);
 }
 
+export function pow(a: number, b: number): number {
+  return Math.pow(a, b);
+}
+
 if (import.meta.main) {
   console.log("Add 2 + 3 =", add(2, 3));
   console.log("Sub 2 - 3 =", sub(2, 3));
   console.log("Mul 2 * 3 =", mul(2, 3));
   console.log("Div 2 / 3 =", div(2, 3));
+  console.log("Pow (2,3) =", pow(2, 3));
   console.log("Sqr 2     =", sqr(2));
   console.log("Sqrt2     =", sqrt(2));
   console.log("Sin 2     =", sin(2));
