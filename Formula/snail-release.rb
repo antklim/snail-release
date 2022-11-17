@@ -10,6 +10,6 @@ class SnailRelease < Formula
   end
 
   test do
-    system "#{bin}/snail-release
+    system "#{bin}/snail-release"
   end
 end
