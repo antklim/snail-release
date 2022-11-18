@@ -6,10 +6,10 @@ class SnailRelease < Formula
   version "0.12.0"
 
   def install
-    bin.install "snail-release"
+    bin.install "snail-release-darwin-x86_64"
   end
 
   test do
-    system "#{bin}/snail-release"
+    system "#{bin}/snail-release-darwin-x86_64"
   end
 end
