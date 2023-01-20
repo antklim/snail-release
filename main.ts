@@ -1,3 +1,7 @@
+import * as Sentry from "npm:@sentry/node";
+
+const SENTRY_DSN = Deno.env.get("SENTRY_DSN");
+
 export function add(a: number, b: number): number {
   return a + b;
 }
@@ -55,6 +59,17 @@ export function asin(a: number): number {
 }
 
 if (import.meta.main) {
+  if (SENTRY_DSN) {
+    Sentry.init({
+      dsn: SENTRY_DSN,
+      tracesSampleRate: 1.0,
+    });
+  }
+
+  // these functions do not perform any action before init() is called
+  Sentry.captureMessage("Starting app!");
+  Sentry.captureException(new Error("Test message"));
+
   console.log("Add 2 + 3 =", add(2, 3));
   console.log("Sub 2 - 3 =", sub(2, 3));
   console.log("Mul 2 * 3 =", mul(2, 3));
